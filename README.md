@@ -14,7 +14,7 @@ Ce bot surveille automatiquement la disponibilité des billets pour le Dream Nat
    ```bash
    python3 -m venv venv
    source venv/bin/activate
-   pip install playwright playwright-stealth python-dotenv
+    pip install -r requirements.txt
    playwright install chromium
    ```
 
