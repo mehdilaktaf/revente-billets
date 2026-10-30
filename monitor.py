@@ -47,12 +47,12 @@ def monitor():
         )
         page = context.new_page()
         
-        # Stealth mode implementation with error handling
-        try:
-            from playwright_stealth import stealth
-            stealth(page)
-        except Exception as e:
-            print(f"Warning: Could not activate stealth mode ({e}). Continuing anyway...")
+        # Manual Stealth Implementation (more reliable than the library)
+        page.add_init_script("""
+            Object.defineProperty(navigator, 'webdriver', {
+                get: () => undefined
+            });
+        """)
         
         try:
             while True:
